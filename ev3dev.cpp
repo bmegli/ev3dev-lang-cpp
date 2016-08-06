@@ -263,6 +263,8 @@ int device::device_index() const
     _device_index = 0;
     for (auto it=_path.rbegin(); it!=_path.rend(); ++it)
     {
+	  if(*it =='/')
+		  continue;
       if ((*it < '0') || (*it > '9'))
         break;
 
@@ -608,6 +610,13 @@ i2c_sensor::i2c_sensor(address_type address) :
   sensor(address, { nxt_i2c_sensor })
 {
 }
+
+i2c_sensor::i2c_sensor(address_type address, const std::set<sensor_type> &type):
+  sensor(address,  type)
+{
+	
+}
+
 
 //-----------------------------------------------------------------------------
 

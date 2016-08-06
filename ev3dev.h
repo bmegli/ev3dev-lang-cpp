@@ -271,7 +271,8 @@ class i2c_sensor : public sensor
 {
 public:
   i2c_sensor(address_type address = INPUT_AUTO);
-
+  i2c_sensor(address_type address = INPUT_AUTO, const std::set<sensor_type> &type={} );
+ 
 //~autogen generic-get-set classes.i2cSensor>currentClass
 
   // FW Version: read-only
